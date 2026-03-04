@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rahul Gola | SEO Consultant Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#10b981",
+                        "background-main": "#f9fafb",
+                        "sidebar-light": "#ffffff",
+                        "charcoal": "#1f2937",
+                        "Linkedin": "#0A66C2",
+                        "slate-custom": "#4b5563"
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1f2937;
+        }
+        .service-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .hero-gradient-light {
+            background: radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .slider-container {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .slider-item {
+            scroll-snap-align: center;
+            flex: 0 0 100%;
+        }
+        .google-g {
+            background: conic-gradient(
+                #4285F4 0deg 45deg, 
+                #EA4335 45deg 150deg, 
+                #FBBC05 150deg 215deg, 
+                #34A853 215deg 315deg, 
+                #4285F4 315deg 360deg
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .sticky-sidebar {
+            position: sticky;
+            top: 73px;
+            height: calc(100vh - 73px);
+            overflow-y: auto;
+        }
+        @media (max-width: 1023px) {
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 85%;
+        max-width: 320px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        background: white;
+    }
+
+    .mobile-sidebar.active {
+        transform: translateX(0);
+    }
+
+    .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 998; /* below sidebar */
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+}
+    </style>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("mobileSidebar").classList.toggle("active");
+            document.getElementById("overlay").classList.toggle("active");
+        }
+
+        document.getElementById("overlay").addEventListener("click", function () {
+            toggleSidebar();
+        });
+    </script>
+</head>
+
+<body class="bg-background-main text-charcoal min-h-screen selection:bg-primary selection:text-white">
+    <nav
+        class="sticky top-0 z-50 w-full px-6 py-4 flex items-center justify-between border-b border-gray-200 bg-white/80 backdrop-blur-md">
+        <div class="flex items-center gap-2">
+            <div onclick="toggleSidebar()"
+                class="w-8 h-8 bg-charcoal rounded-lg flex items-center justify-center cursor-pointer">
+                <span class="text-white font-black text-xs">R</span>
+            </div>
+            <span class="font-bold tracking-tighter text-sm text-charcoal">Rahul G-SEO</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-slate-custom">
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#results">Results</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#services">SEO</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#local">Local SEO</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="#smo">SMO/SMM</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button
+                class="bg-primary text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-600 transition-colors shadow-md hover:scale-105">
+                Audit My Site
+            </button>
+        </div>
+    </nav>
+    <div id="overlay" class="overlay"></div>
+    <div class="flex max-w-[1600px] mx-auto min-h-[calc(100vh-73px)]">
+        <aside id="mobileSidebar"
+            class="w-72 shrink-0 border-r border-gray-200 flex flex-col p-8 bg-sidebar-light shadow-sm sticky-sidebar mobile-sidebar">
+            <div class="flex flex-col items-center text-center mb-8">
+                <div class="relative mb-6">
+                    <img alt="Rahul Gola"
+                        class="w-28 h-28 rounded-full object-cover transition-all duration-500 ring-4 ring-gray-50"
+                        src="https://media.licdn.com/dms/image/v2/D4D03AQHUDemGveNYXA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1689853087940?e=1773878400&v=beta&t=Fu0O_IGd8Ln5ozU5BXUIUF5SF4ZRfyg6krFrOVVkymE" />
+                    <div
+                        class="absolute -bottom-2 -right-0 bg-primary px-2 py-0.5 rounded-full flex items-center gap-1 shadow-md border border-white">
+                        <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                        <span class="text-[10px] font-bold text-white uppercase tracking-wider">Available</span>
+                    </div>
+                </div>
+                <h2 class="text-xl font-bold leading-tight mb-1 text-charcoal">Rahul Gola</h2>
+                <p class="text-slate-custom text-sm mb-4">@rahulgola</p>
+                <div
+                    class="flex items-center gap-2 text-xs font-medium bg-gray-100 px-3 py-1.5 rounded-full mb-6 text-charcoal">
+                    <span class="material-symbols-outlined text-sm">place</span>
+                    India
+                </div>
+                <div class="w-full text-left space-y-4 mb-8">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Role</p>
+                        <p class="text-sm font-semibold text-charcoal">SEO Consultant</p>
+                    </div>
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">Experience</p>
+                        <p class="text-sm font-semibold text-charcoal">1+ Years Organic Growth</p>
+                    </div>
+                    <div>
+                        <div class="flex gap-2 mt-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full space-y-3">
+                    <a href="mailto:rahulcart7@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="w-full bg-charcoal text-white py-3 rounded-xl flex items-center justify-center gap-2 font-bold hover:bg-primary transition-all shadow-md hover:scale-105">
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                        Get Proposal
+                    </a>
+                    <a href="https://www.linkedin.com/in/rahul-gola-0a8865253/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-full bg-[#0077B5] text-white py-3 rounded-xl flex items-center justify-center gap-2 font-semibold hover:bg-[#005582] transition-all shadow-md hover:scale-105 duration-300">
+
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                        <span>LinkedIn</span>
+
+                    </a>
+                </div>
+            </div>
+            <nav class="space-y-1 mt-auto">
+                <a class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-custom hover:bg-gray-50 transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined">troubleshoot</span>
+                    Free Site Audit
+                </a>
+            </nav>
+        </aside>
+        <main class="flex-1 overflow-y-auto hero-gradient-light">
+            <section class="p-8 lg:p-20 max-w-5xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <div
+                        class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full border border-primary/20 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Accepting SEO Projects
+                    </div>
+                    <span class="text-gray-300 text-[10px] font-bold uppercase tracking-widest">•</span>
+                    <span class="text-slate-custom text-[10px] font-bold uppercase tracking-widest">Global Organic
+                        Growth</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 tracking-tight text-charcoal">
+                    Hi, I’m <span class="text-primary">Rahul </span> <span class="google-g">G</span><span
+                        class="text-primary italic"></span>-SEO Consultant driving organic growth <span
+                        class="text-primary">that scales.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-custom max-w-2xl mb-12 leading-relaxed">
+                    I help brands dominate search engine results through data-backed strategies, technical excellence,
+                    and high-performance content.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="bg-primary text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 group hover:bg-emerald-600 transition-all shadow-md hover:scale-105">
+                        <span
+                            class="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform">rocket_launch</span>
+                        Book a Strategy Call
+                    </button>
+                    <a href="https://www.linkedin.com/in/rahul-gola-0a8865253/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-[#0077B5] text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 group hover:bg-[#005582] transition-all shadow-md hover:scale-105">
+
+                        <i class="fa-brands fa-linkedin text-lg"></i>
+                        <span>LinkedIn</span>
+
+                    </a>
+                    <a href="mailto:rahulcart7@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="bg-charcoal text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 group hover:bg-primary transition-all shadow-md hover:scale-105">
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                        Get Proposal
+                    </a>
+                </div>
+            </section>
+            <section class="py-24 bg-white" id="results">
+                <div
+                    class="px-8 lg:px-20 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">The Impact</span>
+                        <h2 class="text-4xl font-extrabold mt-2 text-charcoal tracking-tight">Real SEO Results</h2>
+                        <p class="text-slate-custom mt-2 max-w-xl">Transparent growth metrics from live projects. Data
+                            sourced directly from Search Console and Analytics platforms.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="w-12 h-12 flex items-center justify-center border border-gray-200 rounded-full hover:bg-gray-50 hover:border-primary hover:text-primary transition-all text-charcoal shadow-sm"
+                            onclick="document.getElementById('results-slider').scrollBy({left: -600, behavior: 'smooth'})">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-12 h-12 flex items-center justify-center border border-gray-200 rounded-full hover:bg-gray-50 hover:border-primary hover:text-primary transition-all text-charcoal shadow-sm"
+                            onclick="document.getElementById('results-slider').scrollBy({left: 600, behavior: 'smooth'})">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="flex gap-8 px-8 lg:px-20 overflow-x-auto hide-scrollbar slider-container pb-12"
+                        id="results-slider">
+                        <div class="min-w-[700px] flex flex-col gap-4">
+                            <div
+                                class="aspect-video bg-gray-50 rounded-3xl border border-gray-100 shadow-xl overflow-hidden group/item relative">
+                                <img alt="GSC Performance Chart" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5S9pxx5ko5pvH7FDWa_o3IJbY8EM5su6bzbnCbw5UrNHgNPqQQMv4FUauVg33mL8nGTKpaeg4nLx3X62m_aI2R2OpjrutWtd7C80i4Q1DtHq8lBuAPF8PFoxnrHJ7WhYc6ru1L2dOJ3iKOoYmwpuWpmJ93eeJNmk8g2g2i_w00uBJIHl9gZxc5jAvESUppqFxbkH5pXbw-Kr0_7n4Ql0bVl_iDgT7scHGxjzKfgY5W7OcEvywVTSoiyd18QFXdW8_qKxYEVWafyc" />
+                                <div
+                                    class="absolute inset-0 bg-charcoal/5 group-hover/item:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="px-2">
+                                <h4 class="font-bold text-charcoal">Steady Organic Growth - GSC Data</h4>
+                                <p class="text-sm text-slate-custom">Visualization of a 12-month trajectory showing 340%
+                                    increase in clicks.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[700px] flex flex-col gap-4">
+                            <div
+                                class="aspect-video bg-gray-50 rounded-3xl border border-gray-100 shadow-xl overflow-hidden group/item relative">
+                                <img alt="Ranking Table Dashboard" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2baBujxFjoBo3hUCqczPcChuSe3eJemYpXocd7M6f_z5xQVPTK3fodkmSfNFMYAO1TWD0FczT6xGZNuU5g_YtUFoaxQVlYDUHr-ix3b8tpXk8PWkknu2mSikvBvELP_ckwSPsj2Ab9YJZv21sZ31YJsa9-DMHZhBHN23WZ4aHhhL9qZinpngJ01nS35yvEGtsKgFMGGj42kkEAUO1vOY2dxIDVUmLT5wMzSEYhEsJ-0GtWKryAsFMszmGK85_7UtJEC9KsnmrWA" />
+                                <div
+                                    class="absolute inset-0 bg-charcoal/5 group-hover/item:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="px-2">
+                                <h4 class="font-bold text-charcoal">Keyword Dominance Table</h4>
+                                <p class="text-sm text-slate-custom">Rankings for 50+ high-intent keywords moving from
+                                    Page 10 to Top 3 positions.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[700px] flex flex-col gap-4">
+                            <div
+                                class="aspect-video bg-gray-50 rounded-3xl border border-gray-100 shadow-xl overflow-hidden group/item relative">
+                                <img alt="Analytics Traffic Sources" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB__zbuUNNHNRvzT-lIqomPI_2rbsRXX6nG76KbTg_CuhBV_JcWynXeobZ_I_vL0xhsP7umwGNt5cSC76EhD1puyKKBy01j2xra7OI1WAe4Su6-iwXh83uFkgzHt_q7T21WRJ5vcIAoftHgkQDML6W3SK6iGtrVTqFFgV0w5e5MF5IYjyn7MKejsHbAwWCpJkNfLBGU5F8_4UmVAo7ToHvI59mHMC36zAGVrzbBGiD0nfxjEXIAs7up7XBzcLvGwrJyLPXzHL23o3Y" />
+                                <div
+                                    class="absolute inset-0 bg-charcoal/5 group-hover/item:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="px-2">
+                                <h4 class="font-bold text-charcoal">Channel Distribution - GA4</h4>
+                                <p class="text-sm text-slate-custom">Organic search overtaking paid ads as the #1 lead
+                                    source for a B2B client.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[700px] flex flex-col gap-4">
+                            <div
+                                class="aspect-video bg-gray-50 rounded-3xl border border-gray-100 shadow-xl overflow-hidden group/item relative">
+                                <img alt="Core Web Vitals Report" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh0kAb4sBnaae1V9JPyCzWwYN1CJrV3o4_JYjg1xhZHuBp27WsD0UIyUrDP1FgufENNOyiR2Jtfq4B5hUKZu55Gv1G1kD1m9zbd97A7m97kqRDVO9rgPCR7Bvo5UNQINWroRicjR7lNHODMnz6-9H7UJPl2PC7rmWRfIoOBMSdNakCah9iNcg42T6yZnYL8uDrhbmNy7pabXnzMkdNIc5KzqFMdBc80a9tpyYtcF-Rm9Aztv3NBPHKHu14Pw1rR6bJ8Jnr6SDYxWc" />
+                                <div
+                                    class="absolute inset-0 bg-charcoal/5 group-hover/item:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="px-2">
+                                <h4 class="font-bold text-charcoal">Technical Audit Success</h4>
+                                <p class="text-sm text-slate-custom">Improved Core Web Vitals scores from 'Poor' to
+                                    'Excellent' across all metrics.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[700px] flex flex-col gap-4">
+                            <div
+                                class="aspect-video bg-gray-50 rounded-3xl border border-gray-100 shadow-xl overflow-hidden group/item relative">
+                                <img alt="International SEO Growth" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkvdYuFl0z57MhUMYjRNe9HR3ywc0S7pFsdjQc0cccNL73v1uQdmJy2-O8WoHGk3vcifnkknHoYcn871VAhChnNH4gdBe0BOS5B0ST5ULSGaxoCEpbpEWQFj9yjve0wKWe_7cTij1JfN8DgRT1_N2uoiqVrbBtBpMm8dKkjNDSgOKp3RpEVH0EXH3Wtzr2J83TgchSqdK5NMfwHEVPVQECk0kN4vVIFM3bpOfZx4V4z5S_ep3sqyxG_BxwK3ME5aO0sEUWb9LR1UE" />
+                                <div
+                                    class="absolute inset-0 bg-charcoal/5 group-hover/item:bg-transparent transition-colors">
+                                </div>
+                            </div>
+                            <div class="px-2">
+                                <h4 class="font-bold text-charcoal">Global Expansion Metrics</h4>
+                                <p class="text-sm text-slate-custom">Market entry results for 3 new regions with
+                                    localized content strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 px-8 lg:px-20 overflow-x-auto hide-scrollbar pb-8">
+                        <div class="min-w-[320px] bg-emerald-50 border border-emerald-100 p-8 rounded-3xl shadow-sm">
+                            <div class="text-primary text-4xl font-black mb-2">+230%</div>
+                            <div class="text-sm font-bold uppercase tracking-wider text-slate-custom mb-4">Organic
+                                Traffic</div>
+                            <p class="text-slate-custom text-sm">6-month growth strategy for a B2B SaaS platform in the
+                                fintech sector.</p>
+                        </div>
+                        <div class="min-w-[320px] service-card p-8 rounded-3xl">
+                            <div class="text-charcoal text-4xl font-black mb-2">#1 Spot</div>
+                            <div class="text-sm font-bold uppercase tracking-wider text-slate-custom mb-4">Target
+                                Keyword</div>
+                            <p class="text-slate-custom text-sm">Outranked industry giants for highly competitive
+                                commercial intent keywords.</p>
+                        </div>
+                        <div class="min-w-[320px] bg-emerald-50 border border-emerald-100 p-8 rounded-3xl shadow-sm">
+                            <div class="text-primary text-4xl font-black mb-2">45% lower</div>
+                            <div class="text-sm font-bold uppercase tracking-wider text-slate-custom mb-4">CPA Reduction
+                            </div>
+                            <p class="text-slate-custom text-sm">Lowered cost-per-acquisition by replacing paid ads with
+                                sustainable organic traffic.</p>
+                        </div>
+                        <div class="min-w-[320px] service-card p-8 rounded-3xl">
+                            <div class="text-charcoal text-4xl font-black mb-2">1.2M</div>
+                            <div class="text-sm font-bold uppercase tracking-wider text-slate-custom mb-4">
+                                Impressions/Mo</div>
+                            <p class="text-slate-custom text-sm">Scaling a lifestyle blog from zero to over a million
+                                monthly impressions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="px-8 lg:px-20 py-20 bg-gray-50" id="services">
+                <div class="max-w-5xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Service
+                            Excellence</span>
+                    </div>
+                    <h2 class="text-4xl font-extrabold mb-12 text-charcoal">Search Engine Optimization (SEO) Services
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="service-card p-10 rounded-3xl group">
+                            <div
+                                class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-charcoal">Technical SEO</h3>
+                            <p class="text-slate-custom leading-relaxed">Deep architecture audits, Core Web Vitals
+                                optimization, schema markup, and advanced crawl budget management.</p>
+                        </div>
+                        <div class="service-card p-10 rounded-3xl group">
+                            <div
+                                class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-primary text-3xl">article</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-charcoal">Content Strategy</h3>
+                            <p class="text-slate-custom leading-relaxed">Topic clustering, semantic search optimization,
+                                and keyword research that identifies high-converting opportunities.</p>
+                        </div>
+                        <div class="service-card p-10 rounded-3xl group">
+                            <div
+                                class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-primary text-3xl">link</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-charcoal">Link Building</h3>
+                            <p class="text-slate-custom leading-relaxed">White-hat outreach, guest blogging on high-DA
+                                sites, and broken link building to grow your authority.</p>
+                        </div>
+                        <div class="service-card p-10 rounded-3xl group">
+                            <div
+                                class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-charcoal">Website Performance</h3>
+                            <p class="text-slate-custom leading-relaxed">Speed optimization and conversion rate
+                                optimization (CRO) to turn organic visitors into paying customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="px-8 lg:px-20 py-20 bg-background-main" id="local">
+                <div class="max-w-5xl">
+                    <div class="mb-12">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Local Growth</span>
+                        <h2 class="text-4xl font-extrabold mt-2 text-charcoal">Local SEO - Dominate Google Maps</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="service-card p-6 rounded-2xl">
+                            <span class="material-symbols-outlined text-primary mb-4 block">storefront</span>
+                            <h4 class="font-bold mb-2 text-charcoal">GBP Optimization</h4>
+                            <p class="text-xs text-slate-custom">Claim, verify, and fully optimize your Google Business
+                                Profile for maximum visibility.</p>
+                        </div>
+                        <div class="service-card p-6 rounded-2xl">
+                            <span class="material-symbols-outlined text-primary mb-4 block">location_on</span>
+                            <h4 class="font-bold mb-2 text-charcoal">Map Pack Ranking</h4>
+                            <p class="text-xs text-slate-custom">Geo-targeted strategies to put your business in the
+                                coveted Top 3 local results.</p>
+                        </div>
+                        <div class="service-card p-6 rounded-2xl">
+                            <span class="material-symbols-outlined text-primary mb-4 block">star</span>
+                            <h4 class="font-bold mb-2 text-charcoal">Reputation Management</h4>
+                            <p class="text-xs text-slate-custom">Review generation and management to build trust and
+                                authority in your local area.</p>
+                        </div>
+                        <div class="service-card p-6 rounded-2xl">
+                            <span class="material-symbols-outlined text-primary mb-4 block">lan</span>
+                            <h4 class="font-bold mb-2 text-charcoal">Local Citations</h4>
+                            <p class="text-xs text-slate-custom">NAP consistency across major directories to solidify
+                                your local relevance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-12 bg-gray-100 overflow-hidden">
+                <div class="flex gap-6 px-8 lg:px-20 overflow-x-auto hide-scrollbar">
+                    <div
+                        class="min-w-[400px] flex gap-4 items-center bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                        <div
+                            class="w-32 h-20 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100 shrink-0">
+                            <span class="material-symbols-outlined text-primary">map</span>
+                        </div>
+                        <div>
+                            <div class="text-primary font-bold">Ranked in Top 3 Map Pack</div>
+                            <p class="text-xs text-slate-custom">For "Dental Clinic Singapore" in 45 days.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[400px] flex gap-4 items-center bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                        <div
+                            class="w-32 h-20 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100 shrink-0">
+                            <span class="material-symbols-outlined text-primary">show_chart</span>
+                        </div>
+                        <div>
+                            <div class="text-primary font-bold">+500% Phone Calls</div>
+                            <p class="text-xs text-slate-custom">Increased local leads for an HVAC client.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[400px] flex gap-4 items-center bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                        <div
+                            class="w-32 h-20 rounded-lg bg-emerald-50 flex items-center justify-center border border-emerald-100 shrink-0">
+                            <span class="material-symbols-outlined text-primary">reviews</span>
+                        </div>
+                        <div>
+                            <div class="text-primary font-bold">50+ New 5-Star Reviews</div>
+                            <p class="text-xs text-slate-custom">Strategic review collection campaign.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="px-8 lg:px-20 py-20 bg-white" id="smo">
+                <div class="max-w-5xl">
+                    <div class="mb-12">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Social Synergy</span>
+                        <h2 class="text-4xl font-extrabold mt-2 text-charcoal">SMO &amp; SMM - Build Brand &amp;
+                            Generate Leads</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        <div class="service-card p-8 rounded-3xl border-l-4 border-l-primary">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Profile Optimization</h4>
+                            <p class="text-sm text-slate-custom">Creating high-converting bio and landing pages.</p>
+                        </div>
+                        <div class="service-card p-8 rounded-3xl border-l-4 border-l-primary">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Paid Campaigns</h4>
+                            <p class="text-sm text-slate-custom">Precision targeted Facebook &amp; LinkedIn ads.</p>
+                        </div>
+                        <div class="service-card p-8 rounded-3xl border-l-4 border-l-primary">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Content Creation</h4>
+                            <p class="text-sm text-slate-custom">Viral-potential reels and carousel designs.</p>
+                        </div>
+                        <div class="service-card p-8 rounded-3xl border-l-4 border-l-primary">
+                            <h4 class="font-bold text-lg mb-2 text-charcoal">Lead Generation</h4>
+                            <p class="text-sm text-slate-custom">Converting followers into warm business leads.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-primary/5 border border-primary/20 p-8 rounded-[40px] flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="text-center md:text-left">
+                            <div class="text-primary text-5xl font-black mb-2">350+ leads</div>
+                            <div class="text-lg font-bold text-charcoal uppercase tracking-wider">in just 45 days</div>
+                        </div>
+                        <p class="text-slate-custom max-w-sm text-center md:text-left font-medium">Our latest SMM
+                            campaign for a real estate firm broke all previous conversion records.</p>
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-600 transition-colors shadow-lg">View
+                            Campaign</button>
+                    </div>
+                </div>
+            </section>
+            <section class="px-8 lg:px-20 py-20 border-t border-gray-100 bg-gray-50/50">
+                <div class="max-w-5xl">
+                    <div class="text-center mb-16">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">The Advantage</span>
+                        <h2 class="text-4xl font-extrabold mt-2 text-charcoal">Why Choose Me</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="space-y-10">
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">Proven Results</h4>
+                                    <p class="text-sm text-slate-custom">Track record of scaling 50+ brands across
+                                        diverse industries.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">ROI-Focused</h4>
+                                    <p class="text-sm text-slate-custom">I don't just rank for traffic; I rank for
+                                        revenue-driving keywords.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-10">
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">Custom Strategies</h4>
+                                    <p class="text-sm text-slate-custom">No cookie-cutter plans. Every campaign is built
+                                        from scratch.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">White-Hat Only</h4>
+                                    <p class="text-sm text-slate-custom">100% sustainable practices that keep you safe
+                                        from algorithm updates.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-10">
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">Transparent Reporting</h4>
+                                    <p class="text-sm text-slate-custom">Real-time dashboards and monthly deep-dive
+                                        strategy calls.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center mt-1">
+                                    <span class="material-symbols-outlined text-primary text-sm font-bold">check</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2 text-charcoal">Global Experience</h4>
+                                    <p class="text-sm text-slate-custom">Deep understanding of international markets and
+                                        multi-lingual SEO.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="px-8 lg:px-20 py-20 border-t border-gray-100 bg-white">
+                <div class="text-center mb-12">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-custom">Our Tech
+                        Stack</span>
+                    <h2 class="text-2xl font-bold mt-2 text-charcoal">Expert Tools We Use</h2>
+                </div>
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center">
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-orange-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <img alt="Ahrefs" class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfu8MkMWsmjWqaNZPHQ90rdL5fb_oNk99n_p5qoPoKXvdTc3FVflMJMoQ-3WQ2pmn1SRTWpG2WwHB1jycjXlxt5TfFqdnYM-yfV6PLgYJ7dsZxKIy8nN8Zj-_5H0ixMwuu4iTRByrZwC17V4yl3eDYoL1c5AoiOn0XRULorwNs0_rGVm5lS1ztSvTvR38ubj5NSuueA8ag8pRS-HAnHX1YNrF0DuAIZItBxEpHFzeEM4yBzggzQ4Q8OKtw6MsyD1YdriL3UqoeAC0" />
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">Ahrefs</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-red-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <img alt="SEMrush" class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY6329ncH1YWzUVhGqkGAP2psddDAi0cMllDjcBGyukghjHbr64a5inuY1ojhXEVl1KvlQNb3RZzv2ICNvH9G7mSAUpjgPV3kxQboB3xrOyXF27YDeoIOa03n8PYwslfO3kIB8Tssp9dZyCEBpOWcG7oM3KIwdJIhpHanF4GDuR4mVFUTm40NXEP7zuh_Sr0S4hbZSJivSPGta-dJwiv4HFKzrqZ2whdlYIe5Gm-9G4r1fFL0Pq67etg6C99uFOJJCnW9dq2OoDTs" />
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">SEMrush</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-blue-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <img alt="GA4" class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfewVd2jrq0BK86oLeaLnu6HH30e8svK2I1clxJtFp-RkClMIxa4Lca2Lq55eowssbUC4LG8fAom6amjZXJOLlSuMsGLiBYpGQ-jphoDZ5FY0AOCq3MGOZRoiTCsViexaZh7u6fi4OrUJGyXdQgCNqdQyAAqdPI8K1LdSz6mw8Xmn_iLr5O9j3VDRALe93zcyeqth4GfDugO1ECbcFQu1q8YcXwazkKpIJ1L5EBUQKqd-JhAMRyu4YAINtAihbVhxuzlE_f05GRz4" />
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">GA4</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-yellow-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <span class="material-symbols-outlined text-yellow-600 text-3xl">query_stats</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">GSC</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-green-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <span class="material-symbols-outlined text-green-600 text-3xl">bug_report</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">Scr. Frog</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 group cursor-pointer">
+                        <div
+                            class="w-16 h-16 bg-white border border-gray-100 rounded-2xl flex items-center justify-center font-bold text-purple-600 shadow-sm transition-transform group-hover:-translate-y-1">
+                            <span class="material-symbols-outlined text-purple-600 text-3xl">hub</span>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-custom">Majestic</span>
+                    </div>
+                </div>
+            </section>
+            <section class="py-24 bg-gray-50/50 overflow-hidden border-t border-gray-100" id="expertise">
+                <div
+                    class="px-8 lg:px-20 mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Platform
+                            Mastery</span>
+                        <h2 class="text-4xl font-extrabold mt-2 text-charcoal tracking-tight">Expertise Across Platforms
+                        </h2>
+                        <p class="text-slate-custom mt-2 max-w-xl">Tailored SEO strategies optimized for specific CMS
+                            and architecture requirements.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="w-12 h-12 flex items-center justify-center border border-gray-200 rounded-full bg-white hover:bg-gray-50 hover:border-primary hover:text-primary transition-all text-charcoal shadow-sm"
+                            onclick="document.getElementById('platform-slider').scrollBy({left: -600, behavior: 'smooth'})">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-12 h-12 flex items-center justify-center border border-gray-200 rounded-full bg-white hover:bg-gray-50 hover:border-primary hover:text-primary transition-all text-charcoal shadow-sm"
+                            onclick="document.getElementById('platform-slider').scrollBy({left: 600, behavior: 'smooth'})">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="flex gap-10 px-8 lg:px-20 overflow-x-auto hide-scrollbar slider-container pb-12"
+                        id="platform-slider">
+                        <div class="min-w-[500px] flex flex-col gap-6 group">
+                            <div class="relative">
+                                <div class="laptop-mockup shadow-2xl">
+                                    <div class="aspect-[16/10] bg-white rounded overflow-hidden border border-gray-200">
+                                        <img alt="WordPress Site" class="w-full h-full object-cover"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsKXjwD_pSy-oFfAR_oSyB-IxQ0xQygVUSPelvwuovJ5Bt73nmEh5jAPZkH-5jMkcxnMW76sg4bSrGc2Y2UhnKY6EK5HxJ5X8dZFHan4th5d6IYnF-mvParZEQt0OZne9X2XHAwjDuFo8liz381vXAVvhXzeaTdVzzaVKHngR5OY65HpYQxMgsG6sXZrlHm2Xr1_TbX0OvtY2X5noO9_E-pLJmed8ZbZqcypQann2KfyI0YVEZbE8sAqTSVfiWWEzu95Iv82TetPw" />
+                                    </div>
+                                </div>
+                                <div class="laptop-base shadow-xl mx-auto"></div>
+                                <div
+                                    class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:scale-110 transition-transform">
+                                    <img alt="WordPress" class="w-10 h-10 object-contain"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_d0ZVdycEmFISQuHaV4giQ4zjgDiJdstlfcvfEQ-k7auQFH5BmWfF8iuTTanmZR58gYBLkt2rltljY_X8bb_FqzwXW2MiolukfukW2znNouUy2G1YQ7lZYf9ExgHZ4I3UX_V_Cu6hG1Pffz_reF4kMEcnFYBrbd26m48qofltP0jVSOAWriEQH3U1t7bT9276O6innNS94-G6FWhcC7gF2ipOFqBkvxpYZ3IzjAKHydGAd9rGkh2uW8XtiyOa9hNkbFJtGBO1HTo" />
+                                </div>
+                            </div>
+                            <div class="text-center px-4">
+                                <h4 class="text-xl font-bold text-charcoal mb-2">WordPress SEO</h4>
+                                <p class="text-sm text-slate-custom leading-relaxed">Leveraging RankMath/Yoast alongside
+                                    custom hook-based optimizations for lightning-fast indexing.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[500px] flex flex-col gap-6 group">
+                            <div class="relative">
+                                <div class="laptop-mockup shadow-2xl">
+                                    <div class="aspect-[16/10] bg-white rounded overflow-hidden border border-gray-200">
+                                        <img alt="Shopify Store" class="w-full h-full object-cover"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLpM4oZq8d4nkkU0FwxDe6vvYDZN8Qnfg7pX_SNcL5CFkP3BdjohJdpdCoTVUimyA2o7qccmt5CzmM8-uAYYzAjn7u7bBBDAzM1ZyKR7WpeGYpUfs7upjf-OHinbsbunuNVpN5yfVmL53DUqtsKf7Mz_xNB94IlqHT5UuthkpIz5XwDVt1ImK0hwfzxjQuHzS6f0AfXYeedeye1_Mj1_yVdysLz4FCkl3Ykti-ii1u_2BhCZ480TRX__7zBe6IwdDn27SRgRbjx-Q" />
+                                    </div>
+                                </div>
+                                <div class="laptop-base shadow-xl mx-auto"></div>
+                                <div
+                                    class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:scale-110 transition-transform">
+                                    <img alt="Shopify" class="w-10 h-10 object-contain"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhl0Qz6H1_xELEJijgnm5IPFBbkvps1m00MfmkdbSn84h0pqXeBVZUO1dMVvjnbMZbHQYPj5XhNO1GK3g91OrAcqT3sVvReZTuhHxkEXlNaDVkJXUQkVdbbd_q3Emrzfh6UXyUoznogqJCiCcRF2FvHySZ-TUuT37NvV7uUIpzmHh80CrlUo-T5qJNVMWLTyzGlxEPuwSW3EDAQ0SljNZx8955QNDlxfV83LH01ZXC_2T-Da3YbSPV-d1O-eJXPumL_Erla7ll1Ds" />
+                                </div>
+                            </div>
+                            <div class="text-center px-4">
+                                <h4 class="text-xl font-bold text-charcoal mb-2">Shopify E-commerce</h4>
+                                <p class="text-sm text-slate-custom leading-relaxed">Optimizing liquid templates and
+                                    collection structures to dominate high-intent product searches.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[500px] flex flex-col gap-6 group">
+                            <div class="relative">
+                                <div class="laptop-mockup shadow-2xl">
+                                    <div class="aspect-[16/10] bg-white rounded overflow-hidden border border-gray-200">
+                                        <img alt="Custom Web App" class="w-full h-full object-cover"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0nIZfgnF0A1l0yC1QjYKIievdG5vZxwvkRvpPx-mDcHrvfozmHD7X59YwkCCnQVn2cxigMz7zoNHqMDO6H_AyBTqHpjlPpFLc3tt7JxksS4e5X0vc25HDkkqnxRClrn6XeupanM_uyfoUH3nPBSygqWh2WUx0RPcUSpJgDfPoVN0aVJr5jkeja8Wy28eBDrLfTTJGox82sZtXTel9Fi2taeke0IhLXaYcXo0iGY861LGW9C3uZuvT93Ztxwlh4FCPQAZdg5N6LE" />
+                                    </div>
+                                </div>
+                                <div class="laptop-base shadow-xl mx-auto"></div>
+                                <div
+                                    class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:scale-110 transition-transform text-primary">
+                                    <span class="material-symbols-outlined text-4xl">code</span>
+                                </div>
+                            </div>
+                            <div class="text-center px-4">
+                                <h4 class="text-xl font-bold text-charcoal mb-2">Custom-Built Web Apps</h4>
+                                <p class="text-sm text-slate-custom leading-relaxed">Implementing Server-Side Rendering
+                                    (SSR) and dynamic metadata for React, Vue, and Next.js applications.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[500px] flex flex-col gap-6 group">
+                            <div class="relative">
+                                <div class="laptop-mockup shadow-2xl">
+                                    <div class="aspect-[16/10] bg-white rounded overflow-hidden border border-gray-200">
+                                        <img alt="Webflow Site" class="w-full h-full object-cover"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgOYqGEY2oewTwswNaKJ4OLpxTpQBOJvFXF1Pswmccpdx7I-CviPCtNZqNJMLxwa_z7RvYPkvtZuQs2E8zipDCWIBMgg7arj2_ykullc0tmMjHTkXBItuO57tu66Miyuz3jKHjzfHx6vT3mmai82eccuhWz5fRGMJmFAbIzPoJqTuwYkELOpGC25u1MTsW3RTF9JMmHIDdGDKYdDNNu2TYP7QW5MDeFKhGbMWztaOoIcacS-xk9h_jLGB5eXDlglBY7dQciMrUcr8" />
+                                    </div>
+                                </div>
+                                <div class="laptop-base shadow-xl mx-auto"></div>
+                                <div
+                                    class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:scale-110 transition-transform">
+                                    <img alt="Webflow" class="w-10 h-10 object-contain"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK8PC6JBW2yODhbA9czazvWufcVVb98KTZQjzohfJd-AxeL1VBScCX_39dZ2-0pEGtMZ7Cz05B5eQqa0k64CufkPvDRTfW000Rh2_A9JBMvodSCPzC7TDnmH0GzGCAE7UQWrXRQmmT3fGPCC5y3HCPoI7tjNKCWn5rxfhWALNtyJoVmkPSlypyT9x3bT7I4wZI37W0wzlHnDufhLhUziKif3TqIZwcbKxDmrSHzRduJg85kHk9m8N2om1cnz8bZBZzpWEZpbVixF0" />
+                                </div>
+                            </div>
+                            <div class="text-center px-4">
+                                <h4 class="text-xl font-bold text-charcoal mb-2">Webflow</h4>
+                                <p class="text-sm text-slate-custom leading-relaxed">Advanced CMS schema design and
+                                    clean code generation for superior organic crawlability.</p>
+                            </div>
+                        </div>
+                        <div class="min-w-[500px] flex flex-col gap-6 group">
+                            <div class="relative">
+                                <div class="laptop-mockup shadow-2xl">
+                                    <div class="aspect-[16/10] bg-white rounded overflow-hidden border border-gray-200">
+                                        <img alt="Magento Enterprise" class="w-full h-full object-cover"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDITU9SzzGP7aD5tmpuItbYSnTR_z784qR2q6jjBAYBFRG90Mm-LpubXrswS-YViacjayknjmUdC3sYGQvuiSMYU49bzfXzgQ8cEea2AD-KOyIzQMzazrdSkokd1H6Rr0nBJJAeyKYE76WQBU7GQYbaNGqpNIGZkBoZo4dy9UVJrpkUMwthQRWNQCEMZTO9jvJ1wZUunFwuAqX4p29vxjuJagRgxDKp2IGP15gyHUnnQSZ1kfelwEK9z1P1RzjENA4wDq89jvG9twM" />
+                                    </div>
+                                </div>
+                                <div class="laptop-base shadow-xl mx-auto"></div>
+                                <div
+                                    class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl border border-gray-100 group-hover:scale-110 transition-transform">
+                                    <img alt="Magento" class="w-10 h-10 object-contain"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNf0yKKCoEk6tB2DL4hWoQv87ueYZE0mpNoytIaAWIRh_tGLLNCY30NQWzLrpvkff8hp3NRbvxtSyAc1Q1udemZRcLmbL_W1KFAQHRxr1xXKRav3T7GTd-8HzK9aUuazoyyO5JTqQ3p5kVjPpmTF4-TdV4LTCfusrLNUt_flhvqF5fI1YKgNDcfjDIeNi6-R2j1rwQ-9hHQCtolKEJ03UcpoTGdbeG9ylWIlUGZtIpwAQ9v6-njkjM58yOAFw5Ts4ejDZ7RDTZSE" />
+                                </div>
+                            </div>
+                            <div class="text-center px-4">
+                                <h4 class="text-xl font-bold text-charcoal mb-2">Magento</h4>
+                                <p class="text-sm text-slate-custom leading-relaxed">Solving enterprise-level faceted
+                                    navigation and complex URL structure challenges at scale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="p-8 lg:p-20 border-t border-gray-100 text-center bg-gray-50">
+                <div class="max-w-xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-6 text-charcoal">Ready to dominate search results?</h3>
+                    <p class="text-slate-custom mb-8">Schedule a free 15-minute discovery call to see how we can grow
+                        your organic traffic.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <input
+                            class="bg-white border border-gray-200 rounded-full px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-sm flex-1 text-charcoal"
+                            placeholder="Enter your website URL" type="url" />
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-full font-bold whitespace-nowrap shadow-md hover:bg-emerald-600 transition-colors">Free
+                            SEO Audit</button>
+                    </div>
+                    <div
+                        class="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                        <div>© 2026 Rahul Gola. ALL RIGHTS RESERVED.</div>
+                        <div class="flex gap-6">
+                            <a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+                            <a class="hover:text-primary transition-colors" href="#">Twitter</a>
+                            <a class="hover:text-primary transition-colors" href="#">Behance</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <div class="fixed bottom-6 right-6 lg:hidden z-50">
+        <button
+            class="bg-primary text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-emerald-600">
+            <span class="material-symbols-outlined">chat</span>
+        </button>
+    </div>
+
+</body>
+
+</html>
